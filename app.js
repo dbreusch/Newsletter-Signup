@@ -1,4 +1,5 @@
 //jshint esversion:6
+require('dotenv').config()
 const express = require('express');
 const https = require('https');
 const bodyParser = require('body-parser');
@@ -40,7 +41,7 @@ app.post("/", function(req, res) {
 
   const options = {
     method: "POST",
-    auth: "anystring:7ef85752b1b809d3ddce03c09220b264-us10"
+    auth: process.env.API_KEY
   };
 
   const request = https.request(url, options, function(response) {
